@@ -16,7 +16,7 @@ public class divisionResta {
         //Sin recursion
         r= dividendo-divisor;
         cont=1;
-       while (r > 0 ){
+       while (r > 0 ){// hasta que la resta no sea igual a 0 sigue restando. Cuando es 0 o menor es porque ya se completó la division
            r= r-divisor;
            cont=cont+1;
         }
