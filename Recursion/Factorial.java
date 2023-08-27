@@ -11,6 +11,20 @@ public class Factorial {
         int n=FactorialRecur(nro);
         System.out.println("Result: "+n);
     }
+    
+       public static int FactorialRecur(int nro) {
+        if (nro == 0) {
+            return 0;
+        } else {
+            if (nro > 0) {
+                return nro * FactorialRecur(nro - 1);
+            }
+        }
+        return 1;
+    }
+            
+    
+        
 }
 //---------------------
 import java.util.Scanner;
