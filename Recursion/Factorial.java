@@ -23,6 +23,20 @@ public class Factorial {
         return 1;
 
     }
+    
+       public static int FactorialRecur(int nro) {
+        if (nro == 0) {
+            return 0;
+        } else {
+            if (nro > 0) {
+                return nro * FactorialRecur(nro - 1);
+            }
+        }
+        return 1;
+    }
+            
+    
+        
 }
 //---------------------
 /*import java.util.Scanner;
