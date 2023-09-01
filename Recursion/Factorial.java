@@ -7,13 +7,25 @@ public class Factorial {
         int nro;
 
         System.out.println("Ingrese el nro que le gustaria factorizar ");
-        nro=scanner.nextInt();
-        int n=FactorialRecur(nro);
-        System.out.println("Result: "+n);
+        nro = scanner.nextInt();
+        int n = FactorialRecur(nro);
+        System.out.println("Result: " + n);
+    }
+
+    public static int FactorialRecur(int nro) {
+        if (nro == 0) {
+            return 0;
+        } else {
+            if (nro > 0) {
+                return nro * FactorialRecur(nro - 1);
+            }
+        }
+        return 1;
+
     }
 }
 //---------------------
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Factorial {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -27,4 +39,5 @@ public class Factorial {
         }
         System.out.println("Result: "+ n);
     }
-}
+} */
+

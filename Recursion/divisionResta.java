@@ -23,7 +23,7 @@ public class divisionResta {
     }
 }
 //--------------------------------------------------
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class divisioRestasRecur {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -58,4 +58,4 @@ public class divisioRestasRecur {
         }
         // Hacemos la llamada recursiva con restas sucesivas.
         return 1 + divisionRecursiva(dividendo - divisor, divisor);
-    }
+    }*/
