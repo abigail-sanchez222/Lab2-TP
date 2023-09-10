@@ -9,9 +9,11 @@ public class BlockdeNotas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese el nombre del block (ingrese 'fin' para finalizar: ");
+        // Solicitar al usuario el nombre del block de notas
+        System.out.print("Ingrese el nombre del block:");
         String nombreBlock = scanner.nextLine();
 
+        // Cargar la lista de blocks de notas existentes desde un archivo
         List<Block> blocks = cargarBlocks(); // Cargar la lista de blocks existentes
 
         // Verificar si ya existe un block con el mismo nombre
@@ -22,7 +24,7 @@ public class BlockdeNotas {
             b = new Block(nombreBlock);
             blocks.add(b); // Agregarlo a la lista de blocks
         }
-
+        // Mostrar un menú de opciones al usuario
         System.out.println("\nMenú:");
         System.out.println("1. Agregar nota");
         System.out.println("2. Modificar nota");
@@ -30,11 +32,12 @@ public class BlockdeNotas {
         System.out.println("4. Salir");
         System.out.print("Seleccione una opción: ");
         int opcion = scanner.nextInt();
-        scanner.nextLine(); // Consumir la nueva línea
+        scanner.nextLine(); // leer la opcion
 
         switch (opcion) {
             case 1:
-                System.out.print("Ingrese el texto de la nota: ");
+                // Agregar una nueva nota al block de notas
+                System.out.print("Ingrese el texto de la nota  (ingrese 'fin' para finalizar): ");
 
                 while (true) {
                     String textoNota = scanner.nextLine();
@@ -44,9 +47,9 @@ public class BlockdeNotas {
                     }
                     b.agregarNota(new Nota(textoNota));
                 }
-
                 break;
             case 2:
+                // Modificar una nota existente en el block de notas
                 if (!b.notas.isEmpty()) {
                     System.out.print("Ingrese el índice de la nota que desea modificar: ");
                     int indiceModificacion = scanner.nextInt();
@@ -65,6 +68,7 @@ public class BlockdeNotas {
                 }
                 break;
             case 3:
+                // Eliminar una nota existente del block de notas
                 if (!b.notas.isEmpty()) {
                     System.out.print("Ingrese el índice de la nota que desea eliminar: ");
                     int indiceEliminacion = scanner.nextInt();
@@ -88,17 +92,17 @@ public class BlockdeNotas {
         // Serializar la lista de blocks después de las operaciones
         Serializador serializador = new Serializador();
         serializador.serializar(blocks);
-        System.out.println("Datos serializados.");
+        System.out.println("Guardado.");
 
         // Deserializar y mostrar el contenido
         List<Block> blocksDeserializados = serializador.deserializar();
         if (blocksDeserializados != null) {
-            System.out.println("Datos deserializados:");
+            System.out.println("Mostrar datos:");
             for (Block blockDeserializado : blocksDeserializados) {
                 System.out.println(blockDeserializado.notas);
             }
         } else {
-            System.out.println("No se encontraron datos deserializados.");
+            System.out.println("No se encontraron datos.");
         }
     }
 
@@ -127,7 +131,7 @@ public class BlockdeNotas {
     }
 }
 
-class Serializador {
+class Serializador {//guarda
     public void serializar(List<Block> blocks) {
         try {
             FileOutputStream archivoSalida = new FileOutputStream("blocks.txt");
@@ -139,7 +143,7 @@ class Serializador {
         }
     }
 
-    public List<Block> deserializar() {
+    public List<Block> deserializar() {//muestra el contenido
         List<Block> blocks = null;
         try {
             FileInputStream archivoEntrada = new FileInputStream("blocks.txt");
@@ -152,7 +156,7 @@ class Serializador {
         return blocks;
     }
 }
-
+//implementa funciones
 class Block implements Serializable {
     LinkedList<Nota> notas;
     String texto;
