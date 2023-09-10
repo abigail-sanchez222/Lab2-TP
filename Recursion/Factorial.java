@@ -12,24 +12,16 @@ public class Factorial {
         System.out.println("Result: " + n);
     }
 
-    public static int FactorialRecur(int nro) {
-        if (nro == 0) {
-            return 0;
-        } else {
-            if (nro > 0) {
-                return nro * FactorialRecur(nro - 1);
-            }
-        }
-        return 1;
 
-    }
     
        public static int FactorialRecur(int nro) {
         if (nro == 0) {
             return 0;
         } else {
             if (nro > 0) {
-                return nro * FactorialRecur(nro - 1);
+                int i = nro * FactorialRecur(nro - 1);
+                int i1 = i;
+                return i1;
             }
         }
         return 1;
