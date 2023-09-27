@@ -158,7 +158,7 @@ class Serializador {//guarda
 }
 //implementa funciones
 class Block implements Serializable {
-    LinkedList<Nota> notas;
+    LinkedList<Nota> notas;//arraylist -> fujarse
     String texto;
 
     public Block(String texto) {

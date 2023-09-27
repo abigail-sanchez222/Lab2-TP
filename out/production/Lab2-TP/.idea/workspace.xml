@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0beb6e6a-482b-48fe-9519-33fcfeb4ce77" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab2-TP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab2-TP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModeloParcial/GestionCUENTA/GestorC.java" beforeDir="false" afterPath="$PROJECT_DIR$/ModeloParcial/GestionCUENTA/GestorC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2-TP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2-TP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2-TP/Lab2-TP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2-TP/Lab2-TP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2-TP/blocks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2-TP/blocks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serializacion/BlockdeNotas.java" beforeDir="false" afterPath="$PROJECT_DIR$/serializacion/BlockdeNotas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,10 +39,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.BlockdeNotas (1)">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Desarrollo\Lab2-TP" />
+      <recent name="C:\Desarrollo\Lab2-TP\BaseDeDatos" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.GestorC">
     <configuration name="BlockdeNotas (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="serializacion.BlockdeNotas" />
       <module name="Lab2-TP" />
@@ -50,12 +63,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BlockdeNotas" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serializacion.BlockdeNotas" />
+    <configuration name="Estudiantes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BaseDeDatos.Estudiantes" />
       <module name="Lab2-TP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serializacion.*" />
+          <option name="PATTERN" value="BaseDeDatos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -63,12 +76,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Universidad (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serializacion.Universidad" />
+    <configuration name="GestorC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ModeloParcial.GestionCUENTA.GestorC" />
       <module name="Lab2-TP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serializacion.*" />
+          <option name="PATTERN" value="ModeloParcial.GestionCUENTA.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Universidad (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serializacion.Universidad" />
+    <configuration name="ModeloParcial.ConcesionariaVehiculo.main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ModeloParcial.ConcesionariaVehiculo.main" />
       <module name="Lab2-TP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serializacion.*" />
+          <option name="PATTERN" value="ModeloParcial.ConcesionariaVehiculo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Universidad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serializacion.Universidad" />
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ModeloParcial.GestionCUENTA.main" />
       <module name="Lab2-TP" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serializacion.*" />
+          <option name="PATTERN" value="ModeloParcial.GestionCUENTA.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GestorC" />
+        <item itemvalue="Application.ModeloParcial.ConcesionariaVehiculo.main" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.Estudiantes" />
         <item itemvalue="Application.BlockdeNotas (1)" />
-        <item itemvalue="Application.BlockdeNotas" />
-        <item itemvalue="Application.Universidad" />
-        <item itemvalue="Application.Universidad (5)" />
-        <item itemvalue="Application.Universidad (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -140,6 +153,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="4" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.NotSerializableException" package="java.io" />
+          <option name="timeStamp" value="5" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
