@@ -1,0 +1,274 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Hospital {
+    private static ArrayList<Doctor> doctores = new ArrayList<>();
+    private static ArrayList<Paciente> pacientes = new ArrayList<>();
+
+    public static void main(String[] args) {
+        cargarDoctores();
+        cargarPacientes("datos.txt");
+        mostrarMenu();
+    }
+    public static void mostrarMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Hospital Julio C. Perrando - Av. 9 de Julio 1100 · 0362 444-2399");
+            System.out.println("Menú:");
+            System.out.println("1. Listar Doctores.");
+            System.out.println("2. Registrar un nuevo paciente.");
+            System.out.println("3. Actualizar información personal de un paciente.");
+            System.out.println("4. Consultar el historial médico de un paciente.");
+            System.out.println("5. Nuevo historial para un paciente.");
+            System.out.println("6. Guardar Historial de pacientes en archivo.");
+            System.out.println("7. Cargar Historial de pacientes desde archivo.");
+            System.out.println("8. Salir.");
+            System.out.print("Elija una opción: ");
+
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); 
+
+            switch (opcion) {
+                case 1:
+                    listarDoctores();
+                    break;
+                case 2:
+                    registrarNuevoPaciente(scanner);
+                    break;
+                case 3:
+                    actualizarInformacionPersonalPaciente(scanner);
+                    break;
+                case 4:
+                    consultarHistorialMedico(scanner);
+                    break;
+                case 5:
+                    nuevoHistorialMedico(scanner);
+                    break;
+                case 6:
+                    guardarPacientes("datos.txt");
+                    break;
+                case 7:
+                    cargarPacientes("datos.txt");
+                    break;
+                default:
+                    System.exit(0);
+            }
+        }
+    }
+
+    public static void listarDoctores() {
+        System.out.println("Listado de Doctores:");
+        for (Doctor doctor : doctores) {
+            System.out.println("Nombre: " + doctor.getNombre());
+            System.out.println("DNI: " + doctor.getDni());
+            System.out.println("Fecha de nacimiento: " + doctor.getFechaNacimiento());
+            System.out.println("Especialidad: " + doctor.getEspecialidad());
+            System.out.println();
+        }
+    }
+
+    public static void registrarNuevoPaciente(Scanner scanner) {
+        System.out.print("Nombre del paciente: ");
+        String nombre = scanner.nextLine();
+        System.out.print("DNI del paciente: ");
+        int dni = scanner.nextInt();
+        System.out.print("Fecha de nacimiento del paciente (yyyyMMdd): ");
+        int fechaNacimiento = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Número de teléfono del paciente: ");
+        int numeroTelefono = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Tipo de sangre del paciente: ");
+        String tipoSangre = scanner.nextLine();
+
+        Paciente nuevoPaciente = new Paciente(nombre, dni, fechaNacimiento, numeroTelefono, tipoSangre);
+        pacientes.add(nuevoPaciente);
+        System.out.println("Paciente registrado con éxito.");
+    }
+
+    public static void actualizarInformacionPersonalPaciente(Scanner scanner) {
+        System.out.print("Ingrese el DNI del paciente a actualizar: ");
+        int dni = scanner.nextInt();
+        scanner.nextLine();
+
+        for (int i = 0; i < pacientes.size(); i++) {
+            Paciente paciente = pacientes.get(i);
+            if (paciente.getDni() == dni) {
+                System.out.print("Nuevo número de teléfono: ");
+                int nuevoTelefono = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Nuevo tipo de sangre: ");
+                String nuevaSangre = scanner.nextLine();
+
+                paciente.setNumeroTelefono(nuevoTelefono);
+                paciente.setTipoSangre(nuevaSangre);
+
+                System.out.println("Información actualizada con éxito.");
+                return;
+            }
+        }
+
+        System.out.println("Paciente no encontrado.");
+    }
+
+    public static void nuevoHistorialMedico(Scanner scanner) {
+        System.out.print("Ingrese el DNI del paciente al que desea agregar un nuevo evento al historial: ");
+        int dni = scanner.nextInt();
+        scanner.nextLine(); 
+
+        for (int i = 0; i < pacientes.size(); i++) {
+            Paciente paciente = pacientes.get(i);
+            if (paciente.getDni() == dni) {
+                System.out.print("Fecha del evento (yyyyMMdd): ");
+                System.out.print("DD: ");
+                int fechaEventoDD = scanner.nextInt();
+                System.out.print("MM: ");
+                int fechaEventoMM = scanner.nextInt();
+                System.out.print("AA: ");
+                int fechaEventoAA = scanner.nextInt();
+                scanner.nextLine(); 
+                System.out.print("Observaciones: ");
+                String observaciones = scanner.nextLine();
+                String evento = fechaEventoDD + "/" + fechaEventoMM + "/" + fechaEventoAA + " - " + observaciones;
+                paciente.agregarEventoHistorial(evento);
+
+                System.out.println("Evento agregado al historial médico con éxito.");
+                return;
+            }
+        }
+
+                System.out.println("Paciente no encontrado.");
+    }
+
+    public static void consultarHistorialMedico(Scanner scanner) {
+        System.out.print("Ingrese el DNI del paciente para consultar su historial médico: ");
+        int dni = scanner.nextInt();
+        scanner.nextLine(); 
+
+        for (int i = 0; i < pacientes.size(); i++) {
+            Paciente paciente = pacientes.get(i);
+            if (paciente.getDni() == dni) {
+                System.out.println("HISTORIAL MÉDICO de " + paciente.getNombre() + ":");
+                paciente.verHistorialDeEventos();
+                return;
+            }
+        }
+
+        System.out.println("Paciente no encontrado.");
+    }
+
+    public static void cargarDoctores() {
+        Doctor doctor1 = new Doctor("Dr. Juan Pérez", 12345678, 19071967, "Cardiología");
+        Doctor doctor2 = new Doctor("Dra. María González", 23456789, 19091992, "Pediatría");
+        Doctor doctor3= new Doctor("Dra.Luciana Torres",43770992,12081992,"Dentista");
+        doctores.add(doctor1);
+        doctores.add(doctor2);
+        doctores.add(doctor3);
+    }
+
+    public static void cargarPacientes(String nombreArchivo) {
+        try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
+            pacientes = (ArrayList<Paciente>) entrada.readObject();
+            System.out.println("Pacientes cargados desde archivo exitosamente.");
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error al cargar los pacientes desde el archivo: " + e.getMessage());
+        }
+    }
+
+    public static void guardarPacientes(String nombreArchivo) {
+        try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
+            salida.writeObject(pacientes);
+            System.out.println("Pacientes guardados en archivo exitosamente.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar los pacientes en el archivo: " + e.getMessage());
+        }
+    }
+}
+
+class Paciente extends Persona implements Informacion, Serializable {
+    private int numeroTelefono;
+    private String tipoSangre;
+    private List<String> historialMedico;
+
+    public Paciente(String nombre, int dni, int fechaNacimiento, int numeroTelefono, String tipoSangre) {
+        super(nombre, dni, fechaNacimiento);
+        this.numeroTelefono = numeroTelefono;
+        this.tipoSangre = tipoSangre;
+        this.historialMedico = new ArrayList<>();
+    }
+
+    public void agregarEventoHistorial(String evento) {
+        historialMedico.add(evento);
+    }
+
+    public List<String> getHistorialMedico() {
+        return historialMedico;
+    }
+
+    @Override
+    public void verHistorialDeEventos() {
+        for (String evento : historialMedico) {
+            System.out.println(evento);
+        }
+    }
+
+    public int getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public void setNumeroTelefono(int numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+}
+
+class Doctor extends Persona implements Serializable {
+    private String especialidad;
+
+    public Doctor(String nombre, int dni, int fechaNacimiento, String especialidad) {
+        super(nombre, dni, fechaNacimiento);
+        this.especialidad = especialidad;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+}
+
+class Persona implements Serializable {
+    private String nombre;
+    private int dni;
+    private int fechaNacimiento;
+
+    public Persona(String nombre, int dni, int fechaNacimiento) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public int getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+}
+
+interface Informacion {
+    void verHistorialDeEventos();
+}
